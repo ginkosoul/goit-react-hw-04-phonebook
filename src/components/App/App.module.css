@@ -1,0 +1,10 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 360px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px #bebebe,
+        -4px -4px 8px #bebebe;
+    padding: 16px;
+}
