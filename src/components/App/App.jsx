@@ -6,18 +6,12 @@ import { ContactList, Filter, Contacts } from 'components';
 
 export default function App() {
   const LS_KEY = 'phonebook-data';
-  const [contacts, setContacts] = useState(null);
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(localStorage.getItem(LS_KEY)) || []
+  );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    console.log('reading contacts');
-    const contacts = JSON.parse(localStorage.getItem(LS_KEY)) || [];
-    setContacts(contacts);
-  }, []);
-
-  useEffect(() => {
-    console.log('recording contacts');
-    if (!contacts) return;
     localStorage.setItem(LS_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
