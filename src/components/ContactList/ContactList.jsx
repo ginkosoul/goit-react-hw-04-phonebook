@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import css from '../ContactList/ContactList.module.css';
-// import { nanoid } from 'nanoid';
-
 export default function ContactList({ filteredContacts, handleDelete }) {
   return filteredContacts ? (
     <ul className={css.list}>
       {filteredContacts.map(e => (
         <li className={css.item} key={e.id}>
           {`${e.name}: ${e.phone}`}
-          <button className={css.btn} id={e.id} onClick={handleDelete}>
+          <button
+            className={css.btn}
+            onClick={() => {
+              handleDelete(e.id);
+            }}
+          >
             Delete
           </button>
         </li>
